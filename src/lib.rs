@@ -9,14 +9,14 @@ pub struct DummyParser;
 #[derive(Clone)]
 pub struct DummyParserBuilder;
 
-use syslog_ng_common::sys::LogMessage;
+use syslog_ng_common::LogMessage;
 use syslog_ng_common::proxies::parser::{
-    RustParser,
-    RustParserBuilder,
+    Parser,
+    ParserBuilder,
     OptionError
 };
 
-impl RustParserBuilder for DummyParserBuilder {
+impl ParserBuilder for DummyParserBuilder {
     type Parser = DummyParser;
     fn new() -> Self {
         DummyParserBuilder
@@ -30,16 +30,11 @@ impl RustParserBuilder for DummyParserBuilder {
     }
 }
 
-impl RustParser for DummyParser {
-    type Builder = DummyParserBuilder;
-    fn init(&mut self) -> bool {
-        debug!("Initializing Rust Parser");
-        true
-    }
-    fn process(&mut self, _: &mut LogMessage, input: &str) -> bool {
+impl Parser for DummyParser {
+    fn parse(&mut self, _: &mut LogMessage, input: &str) -> bool {
         debug!("Processing input in Rust Parser: {}", input);
         true
     }
 }
 
-parser_plugin!(DummyParser);
+parser_plugin!(DummyParserBuilder);
