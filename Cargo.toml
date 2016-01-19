@@ -13,8 +13,5 @@ git = "https://github.com/ihrwein/syslog-ng-rs.git"
 [dependencies.syslog-ng-common]
 git = "https://github.com/ihrwein/syslog-ng-rs.git"
 
-[dependencies.syslog-ng-sys]
-git = "https://github.com/ihrwein/syslog-ng-rs.git"
-
 [dependencies]
 log = "0.3"
