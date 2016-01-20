@@ -9,8 +9,8 @@ pub struct DummyParser;
 #[derive(Clone)]
 pub struct DummyParserBuilder;
 
-use syslog_ng_common::LogMessage;
-use syslog_ng_common::proxies::parser::{
+use syslog_ng_common::{
+    LogMessage,
     Parser,
     ParserBuilder,
     OptionError
