@@ -7,11 +7,9 @@ build = "build.rs"
 [lib]
 crate-type = ["dylib"]
 
-[build-dependencies.syslog-ng-build]
-git = "https://github.com/ihrwein/syslog-ng-rs.git"
-
-[dependencies.syslog-ng-common]
-git = "https://github.com/ihrwein/syslog-ng-rs.git"
+[build-dependencies]
+syslog-ng-build = "0.2"
 
 [dependencies]
 log = "0.3"
+syslog-ng-common = "0.4.0"
